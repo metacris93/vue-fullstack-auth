@@ -38,19 +38,22 @@
     </v-app-bar>
 
     <v-main>
-      <Message/>
+      <message />
+      <new-message />
     </v-main>
   </v-app>
 </template>
 
 <script>
 import Message from './components/Message';
+import NewMessage from './components/NewMessage';
 
 export default {
   name: 'App',
 
   components: {
     Message,
+    NewMessage
   },
 
   data: () => ({

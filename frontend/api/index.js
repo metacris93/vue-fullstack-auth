@@ -10,6 +10,5 @@ const headers = {
 export default axios.create({
     baseURL: process.env.VUE_APP_API_URL,
     responseType: "json",
-    headers: headers,
-    transformRequest: (data) => qs.stringify(data)
+    headers: headers
 });
