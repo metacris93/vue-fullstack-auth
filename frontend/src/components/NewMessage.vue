@@ -19,7 +19,7 @@
   </v-flex>
 </template>
 <script>
-import { createNewMessage } from "../../api/message";
+
 export default {
   name: "NewMessage",
   data: () => ({
@@ -27,7 +27,11 @@ export default {
   }),
   methods: {
     async submit() {
-        await createNewMessage({message: this.message});
+        try {
+            this.$store.dispatch('newMessage', this.message);
+        } catch (error) {
+            console.error(error.message);
+        }
     },
   },
 };

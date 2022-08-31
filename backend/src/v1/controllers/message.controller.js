@@ -1,4 +1,8 @@
-const messages = [];
+const messages = ['Mensaje 1', 'Mensaje 2', 'Mensaje 3'];
+
+const getMessage = (req, res) => {
+    res.send(messages[req.params.id]);
+};
 
 const getAll = (req, res) => {
     res.send(messages);
@@ -6,13 +10,12 @@ const getAll = (req, res) => {
 
 const createNewMessage = (req, res) => {
     let msg = req.body;
-    console.log(msg);
     messages.push(msg.message);
     res.json(msg);
-    console.log(messages);
 };
 
 module.exports = {
     getAll,
+    getMessage,
     createNewMessage
 }
