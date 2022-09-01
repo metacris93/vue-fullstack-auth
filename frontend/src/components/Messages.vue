@@ -29,7 +29,11 @@ export default {
     // this.$root.$on('newMessage', message => {
     //     this.messages.push(message);
     // });
-    this.$store.dispatch("getMessages");
+    try {
+        await this.$store.dispatch("getMessages");
+    } catch (error) {
+        console.error(error.message);
+    }
   },
 };
 </script>

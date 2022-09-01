@@ -21,10 +21,16 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        href="#"
+        to="/Login"
         text
       >
         <span>Login</span>
+      </v-btn>
+      <v-btn
+        to="/Register"
+        text
+      >
+        <span>Register</span>
       </v-btn>
     </v-app-bar>
 

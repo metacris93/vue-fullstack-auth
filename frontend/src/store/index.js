@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Vue from 'vue';
 import Vuex from 'vuex';
 import { 
@@ -5,6 +6,10 @@ import {
     getMessage,
     createNewMessage
 } from "../../api/message";
+import { 
+    login,
+    register
+} from "../../api/user";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -30,6 +35,11 @@ export default new Vuex.Store({
         },
         async getMessage({commit}, id) {
             return await getMessage(id);
+        },
+        async register({commit}, data) {
+            const user = await register(data);
+            localStorage.setItem('token', user.id);
+            axios.defaults.headers.common['Authorization'] = user.id;
         }
     }
 });
