@@ -11,7 +11,7 @@
             :key="index" :to="'message/'+index"
           >
             <v-list-item-content to>
-              <v-list-item-title v-text="message"></v-list-item-title>
+              <v-list-item-title>{{message.text}}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>

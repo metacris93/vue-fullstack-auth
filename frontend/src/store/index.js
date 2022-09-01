@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Vue from 'vue';
 import Vuex from 'vuex';
 import { 
@@ -14,7 +13,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        messages: []
+        messages: [],
+        token: localStorage.getItem('token') || ''
     },
     mutations: {
         updateMessages(state, messages) {
@@ -22,6 +22,13 @@ export default new Vuex.Store({
         },
         newMessage(state, message) {
             state.messages.push(message);
+        },
+        auth(state, token) {
+            state.token = token;
+        },
+        logout(state) {
+            state.token = '';
+            localStorage.clear('token');
         }
     },
     actions: {
@@ -37,9 +44,14 @@ export default new Vuex.Store({
             return await getMessage(id);
         },
         async register({commit}, data) {
-            const user = await register(data);
-            localStorage.setItem('token', user.id);
-            axios.defaults.headers.common['Authorization'] = user.id;
+            const token = await register(data);
+            localStorage.setItem('token', token);
+            commit('auth', token);
+        },
+        async login({commit}, data) {
+            const token = await login(data);
+            localStorage.setItem('token', token);
+            commit('auth', token);
         }
     }
 });

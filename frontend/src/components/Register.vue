@@ -2,7 +2,7 @@
   <v-flex class="my-4" sm8 offset-sm2>
     <v-card>
       <v-toolbar dark dense>
-        <v-toolbar-title>New Message</v-toolbar-title>
+        <v-toolbar-title>Sign up</v-toolbar-title>
       </v-toolbar>
       <v-form>
         <v-container>

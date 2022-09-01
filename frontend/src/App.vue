@@ -22,15 +22,25 @@
 
       <v-btn
         to="/Login"
+        v-if="!$store.state.token"
         text
       >
         <span>Login</span>
       </v-btn>
       <v-btn
+        v-if="!$store.state.token"
         to="/Register"
         text
       >
         <span>Register</span>
+      </v-btn>
+      <v-btn
+        v-if="$store.state.token"
+        to="/Messages"
+        @click="$store.commit('logout')"
+        text
+      >
+        <span>Log out</span>
       </v-btn>
     </v-app-bar>
 
@@ -46,7 +56,7 @@ export default {
   name: 'App',
 
   data: () => ({
-    //
+    isAuthenticated: !!localStorage.getItem('token') || false
   }),
 };
 </script>

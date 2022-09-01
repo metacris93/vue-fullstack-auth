@@ -5,9 +5,7 @@
         <v-toolbar dark dense>
           <v-toolbar-title>Message</v-toolbar-title>
         </v-toolbar>
-        <v-card-text>
-            {{message}}
-        </v-card-text>
+        <v-card-text>{{message.text}}</v-card-text>
       </v-list>
     </v-card>
   </v-flex>
